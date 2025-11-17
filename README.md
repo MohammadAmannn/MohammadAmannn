@@ -144,16 +144,6 @@ If you like my work, consider giving a ⭐ to my repositories!
 </div>
 
 
-## 🐍 CONTRIBUTION SNAKE
-
-<div align="center">
-  
-  ![Snake animation](https://raw.githubusercontent.com/MohammadAmannn/MohammadAmannn/output/github-contribution-grid-snake-dark.svg)
-
-</div>
-
----
-
 <div align="center">
 
 ### 💭 *"First, solve the problem. Then, write the code."* – John Johnson
