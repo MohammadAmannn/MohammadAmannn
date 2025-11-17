@@ -1,151 +1,333 @@
-<!-- =========================
-     MOHD AMAN — README.md
-     Copy-paste ready — replace placeholders
-   ========================= -->
+import React, { useEffect, useRef, useState } from 'react';
+import { Github, Linkedin, Instagram, Twitter, Mail, Star, Code, Database, Cpu, Zap, Sparkles } from 'lucide-react';
 
-<!-- ---------- Neon Banner (replace YOUR_BANNER_LINK_HERE) ---------- -->
-<p align="center">
-  <img src="YOUR_BANNER_LINK_HERE" alt="Aman Banner" width="100%" style="border-radius:12px;"/>
-</p>
+const CinematicGitHubProfile = () => {
+  const canvasRef = useRef(null);
+  const [scrollY, setScrollY] = useState(0);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
-<!-- Animated typing header -->
-<h1 align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?size=32&duration=3000&color=00F0FF&center=true&vCenter=true&width=780&lines=Hi+I'm+Mohd+Aman+%F0%9F%91%8B;Web+Developer+%7C+AI+Engineer+%7C+Futuristic+Builder;I+build+movie-like+AI+apps+%F0%9F%94%A5" alt="Typing SVG"/>
-</h1>
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    const handleMouseMove = (e) => {
+      setMousePos({
+        x: (e.clientX / window.innerWidth) * 2 - 1,
+        y: -(e.clientY / window.innerHeight) * 2 + 1
+      });
+    };
 
-<p align="center">
-  <strong style="font-size:14px">Web Developer • AI Integrator • Next.js • Firebase • Gemini • Shadcn</strong>
-</p>
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
 
----
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
-## 🌌 Cinematic Snapshot
-> Building futuristic, movie-like web + AI apps — smooth UI, strong architecture, and production-ready integrations.
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
----
+    const particles = [];
+    const particleCount = 150;
 
-## 🔗 Connect with me
-<p align="center">
-  <a href="https://github.com/MohammadAmannn" target="_blank"><img src="https://skillicons.dev/icons?i=github" height="44" alt="github"/></a>
-  <a href="https://www.linkedin.com/in/mohd-aman-021261236/" target="_blank"><img src="https://skillicons.dev/icons?i=linkedin" height="44" alt="linkedin"/></a>
-  <a href="https://instagram.com/oyie.aman" target="_blank"><img src="https://skillicons.dev/icons?i=instagram" height="44" alt="instagram"/></a>
-  <a href="https://x.com/wtf__ammu" target="_blank"><img src="https://skillicons.dev/icons?i=twitter" height="44" alt="twitter"/></a>
-  <a href="mailto:itsaman00786@gmail.com" target="_blank"><img src="https://skillicons.dev/icons?i=gmail" height="44" alt="email"/></a>
-</p>
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        size: Math.random() * 2 + 1,
+        opacity: Math.random() * 0.5 + 0.3
+      });
+    }
 
----
+    let animationId;
+    const animate = () => {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-## 🛠️ Tech Stack — Neon / 3D Feel
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=html,css,js,ts,react,next,tailwind,nodejs,express,bootstrap,framer" height="60" alt="frontend"/>
-  <br/>
-  <img src="https://skillicons.dev/icons?i=firebase,graphql,postgres,mongodb,drizzle,vercel" height="60" alt="backend-db"/>
-  <br/>
-  <img src="https://skillicons.dev/icons?i=flutter,reactnative,androidstudio" height="60" alt="mobile"/>
-</p>
+      particles.forEach((p, i) => {
+        p.x += p.vx + mousePos.x * 0.2;
+        p.y += p.vy + mousePos.y * 0.2;
 
----
+        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
 
-## 🤖 AI / ML & Data Science — Cinematic Lab
-<p align="center">
-  <img alt="Gemini" src="https://img.shields.io/badge/Google%20Gemini-0059ff?style=for-the-badge&logo=google&logoColor=white"/>
-  <img alt="Firebase Studio" src="https://img.shields.io/badge/Firebase_Studio-ffcb2c?style=for-the-badge&logo=firebase&logoColor=black"/>
-  <img alt="Hugging Face" src="https://img.shields.io/badge/HuggingFace-fec601?style=for-the-badge&logo=huggingface&logoColor=black"/>
-  <img alt="OpenCV" src="https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white"/>
-  <img alt="TensorFlow" src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white"/>
-  <img alt="NumPy" src="https://img.shields.io/badge/NumPy-4D77CF?style=for-the-badge&logo=numpy&logoColor=white"/>
-  <img alt="Pandas" src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"/>
-</p>
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        
+        const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 3);
+        gradient.addColorStop(0, `rgba(99, 102, 241, ${p.opacity})`);
+        gradient.addColorStop(0.5, `rgba(139, 92, 246, ${p.opacity * 0.5})`);
+        gradient.addColorStop(1, 'rgba(236, 72, 153, 0)');
+        
+        ctx.fillStyle = gradient;
+        ctx.fill();
 
----
+        particles.forEach((p2, j) => {
+          if (i === j) return;
+          const dx = p.x - p2.x;
+          const dy = p.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
 
-## ⚙️ Tools & Editors
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=vscode,git,github,figma,canva,postman" height="56" alt="tools"/>
-</p>
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = `rgba(139, 92, 246, ${0.15 * (1 - dist / 120)})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        });
+      });
 
----
+      animationId = requestAnimationFrame(animate);
+    };
 
-## 🔥 GitHub Activity (live cards)
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=MohammadAmannn&show_icons=true&theme=nightowl&hide_border=true" height="170"/>
-  &nbsp;
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=MohammadAmannn&theme=nightowl&hide_border=true" height="170"/>
-  &nbsp;
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=MohammadAmannn&layout=compact&theme=nightowl&hide_border=true" height="170"/>
-</p>
+    animate();
 
----
+    return () => cancelAnimationFrame(animationId);
+  }, [mousePos]);
 
-## 🌟 Featured Projects — Cinematic Showcase
+  const techStacks = [
+    { name: 'Frontend', items: ['React', 'Next.js', 'TypeScript', 'Tailwind', 'Flutter', 'React Native'], icon: Code },
+    { name: 'Backend', items: ['Node.js', 'Express', 'Python', 'PHP', 'Firebase'], icon: Database },
+    { name: 'AI/ML', items: ['TensorFlow', 'Hugging Face', 'OpenCV', 'NumPy', 'Pandas'], icon: Cpu },
+    { name: 'Cloud', items: ['Firebase Studio', 'Vercel', 'GCP', 'Azure', 'Cloudflare'], icon: Zap }
+  ];
 
-### 🚀 Aicademy — AI Learning Universe
-- **Description:** AI-generated courses, video suggestions, notes, and doubt support — built for student learning at scale.  
-- **Tech:** Next.js • Tailwind • Shadcn • Google Gemini • Drizzle ORM • Streamlit (tools)  
-- **Links:** Demo: `ADD_LINK_HERE` • Repo: `ADD_LINK_HERE`
+  const projects = [
+    {
+      title: 'Aicademy',
+      desc: 'AI-powered learning platform with course generation',
+      tech: 'Next.js • Gemini • Drizzle • Tailwind',
+      gradient: 'from-violet-600 to-indigo-600'
+    },
+    {
+      title: 'GrowTo',
+      desc: 'Animated agriculture company landing page',
+      tech: 'Next.js • Framer Motion • Tailwind',
+      gradient: 'from-emerald-600 to-teal-600'
+    },
+    {
+      title: 'Smart Home AI',
+      desc: 'Intelligent home automation system',
+      tech: 'TensorFlow • OpenCV • React Native',
+      gradient: 'from-pink-600 to-rose-600'
+    }
+  ];
 
----
+  return (
+    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+      {/* Animated Background Canvas */}
+      <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full pointer-events-none z-0" />
 
-### 🌾 GrowTo — Animated Agriculture Portal
-- **Description:** Marketing & product site with smooth animations and clear UX.  
-- **Tech:** Next.js • Tailwind • Framer Motion • Vercel  
-- **Links:** Demo: `ADD_LINK_HERE` • Repo: `ADD_LINK_HERE`
+      {/* Hero Section */}
+      <div className="relative z-10 min-h-screen flex items-center justify-center px-4">
+        <div 
+          className="text-center"
+          style={{
+            transform: `translateY(${scrollY * 0.5}px)`,
+            transition: 'transform 0.1s ease-out'
+          }}
+        >
+          {/* Glowing Avatar */}
+          <div className="relative inline-block mb-8">
+            <div className="absolute inset-0 bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 rounded-full blur-2xl opacity-60 animate-pulse" />
+            <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-violet-500 via-purple-500 to-pink-500 p-1">
+              <div className="w-full h-full rounded-full bg-black flex items-center justify-center text-6xl font-bold bg-gradient-to-br from-violet-400 to-pink-400 bg-clip-text text-transparent">
+                MA
+              </div>
+            </div>
+          </div>
 
----
+          {/* Name with cinematic effect */}
+          <h1 className="text-7xl md:text-9xl font-black mb-4 relative">
+            <span className="absolute inset-0 bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 bg-clip-text text-transparent blur-lg opacity-50">
+              MOHD AMAN
+            </span>
+            <span className="relative bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              MOHD AMAN
+            </span>
+          </h1>
 
-### 🏠 Smart Home AI System (CID-Inspired)
-- **Description:** Academic project: Local automation, voice modules, and AI decision logic.  
-- **Tech:** Python, Streamlit, OpenCV, TensorFlow, Firebase (for state & auth)
+          <div className="space-y-2 mb-8">
+            <p className="text-2xl md:text-3xl text-gray-300 font-light tracking-wider">
+              Full-Stack Developer • AI Architect
+            </p>
+            <p className="text-xl text-violet-400 font-mono">
+              Building the Future with AI & Code
+            </p>
+          </div>
 
----
+          {/* Social Links */}
+          <div className="flex gap-4 justify-center mb-12">
+            {[
+              { Icon: Github, href: 'https://github.com/MohammadAmannn', color: 'hover:text-violet-400' },
+              { Icon: Linkedin, href: 'https://www.linkedin.com/in/mohd-aman-021261236/', color: 'hover:text-blue-400' },
+              { Icon: Instagram, href: 'https://www.instagram.com/oyie.aman', color: 'hover:text-pink-400' },
+              { Icon: Twitter, href: 'https://x.com/wtf__ammu', color: 'hover:text-sky-400' },
+              { Icon: Mail, href: 'mailto:itsaman00786@gmail.com', color: 'hover:text-red-400' }
+            ].map(({ Icon, href, color }, i) => (
+              <a
+                key={i}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`p-4 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 ${color} transition-all duration-300 hover:scale-110 hover:bg-white/10 hover:shadow-2xl hover:shadow-violet-500/50`}
+              >
+                <Icon size={28} />
+              </a>
+            ))}
+          </div>
 
-## 🎛️ Mini Project Cards (copy + paste to highlight more repos)
-<p align="center">
-  <a href="ADD_LINK_HERE"><img src="https://img.shields.io/badge/Aicademy-Next.js%20%7C%20Gemini-00E5FF?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Aicademy"/></a>
-  <a href="ADD_LINK_HERE"><img src="https://img.shields.io/badge/GrowTo-Next.js%20%7C%20Framer-black?style=for-the-badge&logo=framer&logoColor=white" alt="GrowTo"/></a>
-  <a href="ADD_LINK_HERE"><img src="https://img.shields.io/badge/SmartHome-Python%20%7C%20OpenCV-FFC107?style=for-the-badge&logo=python&logoColor=white" alt="SmartHome"/></a>
-</p>
+          {/* Scroll Indicator */}
+          <div className="animate-bounce">
+            <div className="w-6 h-10 border-2 border-violet-400 rounded-full p-1">
+              <div className="w-1.5 h-3 bg-violet-400 rounded-full mx-auto animate-pulse" />
+            </div>
+          </div>
+        </div>
+      </div>
 
----
+      {/* Tech Stack Section */}
+      <div className="relative z-10 py-32 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-6xl font-black text-center mb-20">
+            <span className="bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-transparent">
+              TECH ARSENAL
+            </span>
+          </h2>
 
-## 🏆 Achievements & Badges
-<p align="center">
-  <img alt="GitHub metrics" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=MohammadAmannn&theme=monokai" />
-</p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {techStacks.map((stack, i) => (
+              <div
+                key={i}
+                className="group relative bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-violet-500/50 transition-all duration-500 hover:scale-105"
+                style={{
+                  animation: `float ${3 + i * 0.5}s ease-in-out infinite`,
+                  animationDelay: `${i * 0.2}s`
+                }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-violet-600/0 to-pink-600/0 group-hover:from-violet-600/10 group-hover:to-pink-600/10 rounded-3xl transition-all duration-500" />
+                
+                <div className="relative">
+                  <div className="mb-6 inline-block p-4 rounded-2xl bg-gradient-to-br from-violet-500/20 to-pink-500/20">
+                    <stack.icon size={32} className="text-violet-400" />
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold mb-4 text-violet-300">{stack.name}</h3>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    {stack.items.map((item, j) => (
+                      <span
+                        key={j}
+                        className="px-3 py-1.5 text-sm rounded-full bg-white/5 border border-white/10 text-gray-300 hover:bg-violet-500/20 hover:border-violet-500/50 hover:text-white transition-all duration-300"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
----
+      {/* Projects Section */}
+      <div className="relative z-10 py-32 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-6xl font-black text-center mb-20">
+            <span className="bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-transparent">
+              FEATURED WORKS
+            </span>
+          </h2>
 
-## 💝 Show Some Love
-If a project helped you — a ⭐ is the easiest way to show love. It helps the project grow and puts a smile on my face ✨
+          <div className="grid md:grid-cols-3 gap-8">
+            {projects.map((project, i) => (
+              <div
+                key={i}
+                className="group relative bg-black rounded-3xl overflow-hidden border border-white/10 hover:border-violet-500/50 transition-all duration-500 hover:scale-105"
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
+                
+                <div className="relative p-8">
+                  <div className="mb-4">
+                    <Sparkles className="text-violet-400 mb-4" size={32} />
+                    <h3 className="text-3xl font-bold mb-2">{project.title}</h3>
+                  </div>
+                  
+                  <p className="text-gray-400 mb-4 text-lg">{project.desc}</p>
+                  
+                  <p className="text-sm text-violet-300 font-mono mb-6">{project.tech}</p>
+                  
+                  <button className="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-violet-600 to-pink-600 font-semibold hover:shadow-2xl hover:shadow-violet-500/50 transition-all duration-300 hover:scale-105">
+                    View Project
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
----
+      {/* Stats Section */}
+      <div className="relative z-10 py-32 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { label: 'Projects', value: '50+', icon: Code },
+              { label: 'Technologies', value: '30+', icon: Cpu },
+              { label: 'GitHub Stars', value: '100+', icon: Star }
+            ].map((stat, i) => (
+              <div
+                key={i}
+                className="relative bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-xl rounded-3xl p-12 border border-white/10 text-center group hover:border-violet-500/50 transition-all duration-500"
+              >
+                <stat.icon className="mx-auto mb-4 text-violet-400 group-hover:scale-110 transition-transform duration-300" size={48} />
+                <div className="text-6xl font-black mb-2 bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-transparent">
+                  {stat.value}
+                </div>
+                <div className="text-xl text-gray-400">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
-## 📬 Contact & Collaborations
-I’m open to collaboration on AI, full-stack apps, and cinematic UI work.  
-- Email: itsaman00786@gmail.com  
-- LinkedIn: https://www.linkedin.com/in/mohd-aman-021261236/
+      {/* CTA Section */}
+      <div className="relative z-10 py-32 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-5xl md:text-7xl font-black mb-8">
+            <span className="bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-transparent">
+              Let's Build Something Epic
+            </span>
+          </h2>
+          <p className="text-2xl text-gray-400 mb-12">
+            Open to collaborations on AI, Full-Stack, and innovative projects
+          </p>
+          <a
+            href="mailto:itsaman00786@gmail.com"
+            className="inline-block py-4 px-12 text-xl font-bold rounded-full bg-gradient-to-r from-violet-600 to-pink-600 hover:shadow-2xl hover:shadow-violet-500/50 transition-all duration-300 hover:scale-110"
+          >
+            Get In Touch
+          </a>
+        </div>
+      </div>
 
----
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-20px); }
+        }
+      `}</style>
+    </div>
+  );
+};
 
-## 🖼️ Extra — Neon Footer (animated)
-<p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira%20Code&size=18&duration=3000&pause=600&center=true&vCenter=true&color=00FF9C&width=720&lines=%E2%9D%A4%EF%B8%8F+Lets+build+futuristic+AI+apps+%E2%9D%A4%EF%B8%8F;Reach+out+for+collabs+or+freelance" alt="footer-typing"/>
-</p>
-
----
-
-### 🔧 Instructions — quick setup
-1. Replace `YOUR_BANNER_LINK_HERE` with your banner image raw URL (upload the image to your repo and copy raw link).  
-2. Replace each `ADD_LINK_HERE` with repo/demo links.  
-3. If you prefer a different theme for the GitHub cards, swap `theme=nightowl` to `theme=tokyonight` or `theme=radical` in the stats URLs.  
-4. Commit this file to the repo named **exactly** your GitHub username (e.g., `MohammadAmannn`) so it appears on your profile.
-
----
-
-> ✨ Want me to generate:
-> - a custom neon banner image (suggested sizes & downloadable link),  
-> - or a ready-to-upload GIF header with matrix/motion effect,  
-> - or a small 3D avatar (SVG/GIF) for the top?  
->  
-> Say **“generate banner”** or **“make 3D avatar”** and I’ll create it for you.
-
+export default CinematicGitHubProfile;
