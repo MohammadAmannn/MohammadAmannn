@@ -130,17 +130,6 @@ Beautiful animated website built for a real agriculture company
   
 </div>
 
----
-
-## 🏆 GITHUB TROPHIES
-
-<div align="center">
-  
-  [trophy](https://github-profile-trophy.vercel.app/?username=MohammadAmannn&theme=radical&no-frame=true&no-bg=true&column=7&margin-w=15&margin-h=15)
-
-</div>
-
----
 
 ## 📈 CONTRIBUTION GRAPH
 
@@ -149,16 +138,6 @@ Beautiful animated website built for a real agriculture company
 [![Aman's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=MohammadAmannn&theme=react-dark&hide_border=true&area=true&custom_title=Contribution%20Graph&bg_color=0D1117&color=6366F1&line=EC4899&point=FFFFFF)](https://github.com/MohammadAmannn)
 
 </div>
-
-
-
-## 💡 CURRENT FOCUS
-
-<div align="center">
-  
-## 💰 SUPPORT MY WORK
-
-<div align="center">
 
 If you like my work, consider giving a ⭐ to my repositories!
 
