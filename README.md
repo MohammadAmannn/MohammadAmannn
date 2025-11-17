@@ -4,17 +4,17 @@
 </p>
 
 <h1 align="center">Hi, I'm Mohd Aman 👋</h1>
-<h3 align="center">Web Developer • AI Integrator • Next.js Enthusiast</h3>
+<h3 align="center"> Passionate Web Developer • AI Integrator • Next.js Enthusiast</h3>
 
 ---
 
 ## 🔗 Connect with Me  
 <p align="left">
-<a href="#"><img src="https://skillicons.dev/icons?i=github" height="45"/></a>
-<a href="#"><img src="https://skillicons.dev/icons?i=linkedin" height="45"/></a>
-<a href="#"><img src="https://skillicons.dev/icons?i=instagram" height="45"/></a>
-<a href="#"><img src="https://skillicons.dev/icons?i=twitter" height="45"/></a>
-<a href="mailto:YOUR_EMAIL"><img src="https://skillicons.dev/icons?i=gmail" height="45"/></a>
+<a href="https://github.com/MohammadAmannn/MohammadAmannn"><img src="https://skillicons.dev/icons?i=github" height="45"/></a>
+<a href="https://www.linkedin.com/in/mohd-aman-021261236/"><img src="https://skillicons.dev/icons?i=linkedin" height="45"/></a>
+<a href="https://www.instagram.com/oyie.aman?igsh=MXNqOXB5MXNiODdjZA=="><img src="https://skillicons.dev/icons?i=instagram" height="45"/></a>
+<a href="https://x.com/wtf__ammu?t=8JbFEAR9JrjICZfkLT7ZFw&s=09"><img src="https://skillicons.dev/icons?i=twitter" height="45"/></a>
+<a href="mailto:itsaman00786@gmail.com"><img src="https://skillicons.dev/icons?i=gmail" height="45"/></a>
 </p>
 
 ---
@@ -63,20 +63,15 @@
 ### 🔹 **Aicademy – AI Learning Platform**
 AI-generated courses, video recommendations, notes & doubt support.  
 **Tech:** Next.js, Drizzle, Gemini, Tailwind, Shadcn  
-🔗 Repo: *Add link*
-
 ---
 
 ### 🔹 **GrowTo – Agriculture Landing Website**
 Beautiful animated website built for a real company.  
 **Tech:** Next.js, Tailwind, Framer Motion  
-🔗 Repo: *Add link*
 
 ---
 
 ### 🚀 **Smart Home AI System**  
-Your academic AI project inspired by CID.
-
 ---
 
 ## 💝 Support My Work  
