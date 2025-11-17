@@ -10,18 +10,8 @@
 
 ---
 
-## 🌌 ABOUT ME
-
-```typescript
-const aman = {
-  role: "Full-Stack Developer & AI Engineer",
-  location: "India 🇮🇳",
-  education: "Computer Science",
-  currentFocus: ["AI Integration", "Next.js 15", "TensorFlow", "React Native"],
-  askMeAbout: ["Web Dev", "AI/ML", "Mobile Apps", "Firebase", "Computer Vision"],
-  funFact: "I turn coffee into code and ideas into AI-powered solutions ☕→💻"
-};
-```
+## 🔗 Connect with Me 
+<p align="left"> <a href="https://github.com/MohammadAmannn/MohammadAmannn"><img src="https://skillicons.dev/icons?i=github" height="45"/></a> <a href="https://www.linkedin.com/in/mohd-aman-021261236/"><img src="https://skillicons.dev/icons?i=linkedin" height="45"/></a> <a href="https://www.instagram.com/oyie.aman?igsh=MXNqOXB5MXNiODdjZA=="><img src="https://skillicons.dev/icons?i=instagram" height="45"/></a> <a href="https://x.com/wtf__ammu?t=8JbFEAR9JrjICZfkLT7ZFw&s=09"><img src="https://skillicons.dev/icons?i=twitter" height="45"/></a> <a href="mailto:itsaman00786@gmail.com"><img src="https://skillicons.dev/icons?i=gmail" height="45"/></a> </p>
 
 <div align="center">
 
