@@ -8,6 +8,8 @@
 
 </div>
 
+
+
 ---
 
 ## 🔗 Connect with Me 
@@ -141,9 +143,14 @@ Beautiful animated website built for a real agriculture company
 ## 🏆 GitHub Trophies
 <img src="https://github-profile-trophy.vercel.app/?username=MohammadAmannn&theme=radical" alt="github trophies" />
 
+![snake gif](https://github.com/MohammadAmannn/MohammadAmannnblob/output/github-snake-dark.svg)
+
+
 If you like my work, consider giving a ⭐ to my repositories!
 
 </div>
+
+
 
 
 
