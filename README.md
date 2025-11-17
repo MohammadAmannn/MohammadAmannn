@@ -33,7 +33,7 @@
 ## 🤖 AI Tools I Use  
 <p>
 <img src="https://img.shields.io/badge/Google%20Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white"/>
-<img src="http://www.w3.org/2000/svg"/>
+<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fgenerativeai.pub%2Fgoogle-launches-firebase-studio-build-full-stack-ai-apps-with-gemini-4651dacc5ab2&psig=AOvVaw3ERLGLzNOy5u0SytDT8_N-&ust=1763449211398000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCPiI-LHO-JADFQAAAAAdAAAAABAE"/>
 <img src="https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white"/>
 </p>
 
