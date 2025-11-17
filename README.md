@@ -116,20 +116,6 @@ Beautiful animated website built for a real agriculture company
 
 ---
 
-### 🏠 **Smart Home AI System**
-[![Smart Home](https://img.shields.io/badge/VIEW_PROJECT-EC4899?style=for-the-badge&logo=tensorflow&logoColor=white)](https://github.com/MohammadAmannn)
-
-```
-Intelligent home automation with computer vision & voice control
-```
-
-**Tech Stack:**
-`TensorFlow` • `OpenCV` • `Python` • `React Native` • `Firebase` • `IoT Integration`
-
-</div>
-
----
-
 ## 📊 GITHUB ANALYTICS
 
 <div align="center">
@@ -150,7 +136,7 @@ Intelligent home automation with computer vision & voice control
 
 <div align="center">
   
-  ![trophy](https://github-profile-trophy.vercel.app/?username=MohammadAmannn&theme=radical&no-frame=true&no-bg=true&column=7&margin-w=15&margin-h=15)
+  [trophy](https://github-profile-trophy.vercel.app/?username=MohammadAmannn&theme=radical&no-frame=true&no-bg=true&column=7&margin-w=15&margin-h=15)
 
 </div>
 
@@ -164,108 +150,20 @@ Intelligent home automation with computer vision & voice control
 
 </div>
 
----
 
-## 🌐 CONNECT WITH ME
-
-<div align="center">
-
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MohammadAmannn)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohd-aman-021261236/)
-[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/oyie.aman?igsh=MXNqOXB5MXNiODdjZA==)
-[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://x.com/wtf__ammu?t=8JbFEAR9JrjICZfkLT7ZFw&s=09)
-[![Gmail](https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:itsaman00786@gmail.com)
-
-### 📧 Email: **itsaman00786@gmail.com**
-
-</div>
-
----
 
 ## 💡 CURRENT FOCUS
 
 <div align="center">
-
-```mermaid
-mindmap
-  root((MOHD AMAN))
-    AI/ML
-      TensorFlow
-      Computer Vision
-      Hugging Face
-      NLP
-    Full Stack
-      Next.js 15
-      React Native
-      Firebase Studio
-      TypeScript
-    Mobile Dev
-      Flutter
-      React Native
-      Cross Platform
-    Cloud
-      GCP
-      Azure
-      Firebase
-```
-
-</div>
-
----
-
-## 🎯 2025 GOALS
-
-- 🚀 Build 10+ AI-powered applications
-- 📱 Master React Native & Flutter for cross-platform development
-- 🤖 Contribute to open-source AI/ML projects
-- 📚 Launch an AI course platform
-- 🌍 Collaborate with developers worldwide
-- 🏆 Reach 1000+ GitHub stars
-
----
-
-## 📝 LATEST BLOG POSTS
-
-<!-- BLOG-POST-LIST:START -->
-- 🤖 Building AI-Powered Web Apps with Next.js and Gemini
-- 📱 React Native vs Flutter: A Complete Comparison
-- 🎨 Mastering Animations with Framer Motion
-- 🔥 Firebase Studio: The Complete Guide
-- 🧠 Computer Vision with OpenCV and TensorFlow
-<!-- BLOG-POST-LIST:END -->
-
----
-
+  
 ## 💰 SUPPORT MY WORK
 
 <div align="center">
 
 If you like my work, consider giving a ⭐ to my repositories!
 
-[![Buy Me A Coffee](https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com)
-[![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me)
-
 </div>
 
----
-
-## 📊 CODING STATS
-
-<div align="center">
-
-<!--START_SECTION:waka-->
-```text
-TypeScript   12 hrs 30 mins  ████████████░░░░░░░░░   48.2%
-JavaScript   6 hrs 15 mins   ██████░░░░░░░░░░░░░░░   24.1%
-Python       4 hrs 20 mins   ████░░░░░░░░░░░░░░░░░   16.7%
-CSS          2 hrs 10 mins   ██░░░░░░░░░░░░░░░░░░░    8.4%
-Other        0 hrs 40 mins   █░░░░░░░░░░░░░░░░░░░░    2.6%
-```
-<!--END_SECTION:waka-->
-
-</div>
-
----
 
 ## 🐍 CONTRIBUTION SNAKE
 
