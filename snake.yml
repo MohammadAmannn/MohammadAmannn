@@ -1,0 +1,56 @@
+name: Update Contribution Snake
+
+on:
+  schedule:
+    - cron: '0 4 * * *'    # daily at 04:00 UTC (adjust if you want)
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: write   # required so the workflow can commit the generated SVG
+
+jobs:
+  build-and-commit-snake:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install generator (global)
+        run: |
+          npm install -g github-contribution-grid-snake || true
+          # if install above fails, npx below will still try to run it
+
+      - name: Generate snake SVG
+        run: |
+          mkdir -p output
+          npx github-contribution-grid-snake --username MohammadAmannn --output output/github-contribution-grid-snake.svg || \
+          echo "Generator failed - check logs"
+
+      - name: Show generated file (for debug)
+        run: ls -la output && head -n 20 output/github-contribution-grid-snake.svg || true
+
+      - name: Commit and push generated SVG
+        env:
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+        run: |
+          git config user.name "$GIT_AUTHOR_NAME"
+          git config user.email "$GIT_AUTHOR_EMAIL"
+          git add output/github-contribution-grid-snake.svg || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: update contribution snake"
+            git push
+          fi
