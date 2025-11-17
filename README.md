@@ -1,333 +1,304 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Github, Linkedin, Instagram, Twitter, Mail, Star, Code, Database, Cpu, Zap, Sparkles } from 'lucide-react';
+# 💫 MOHD AMAN
 
-const CinematicGitHubProfile = () => {
-  const canvasRef = useRef(null);
-  const [scrollY, setScrollY] = useState(0);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+<div align="center">
+  
+  ![Header](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=300&section=header&text=MOHD%20AMAN&fontSize=90&fontAlignY=35&animation=twinkling&fontColor=gradient&desc=Full-Stack%20Developer%20•%20AI%20Architect%20•%20Next.js%20Enthusiast&descAlignY=55&descSize=25)
 
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    const handleMouseMove = (e) => {
-      setMousePos({
-        x: (e.clientX / window.innerWidth) * 2 - 1,
-        y: -(e.clientY / window.innerHeight) * 2 + 1
-      });
-    };
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=28&pause=1000&color=6366F1&center=true&vCenter=true&random=false&width=600&lines=Building+the+Future+with+AI;Full-Stack+Development;Machine+Learning+%26+Computer+Vision;Mobile+%26+Web+Applications" alt="Typing SVG" />
 
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
+</div>
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+---
 
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+## 🌌 ABOUT ME
 
-    const particles = [];
-    const particleCount = 150;
-
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        size: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.5 + 0.3
-      });
-    }
-
-    let animationId;
-    const animate = () => {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      particles.forEach((p, i) => {
-        p.x += p.vx + mousePos.x * 0.2;
-        p.y += p.vy + mousePos.y * 0.2;
-
-        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        
-        const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 3);
-        gradient.addColorStop(0, `rgba(99, 102, 241, ${p.opacity})`);
-        gradient.addColorStop(0.5, `rgba(139, 92, 246, ${p.opacity * 0.5})`);
-        gradient.addColorStop(1, 'rgba(236, 72, 153, 0)');
-        
-        ctx.fillStyle = gradient;
-        ctx.fill();
-
-        particles.forEach((p2, j) => {
-          if (i === j) return;
-          const dx = p.x - p2.x;
-          const dy = p.y - p2.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-
-          if (dist < 120) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(139, 92, 246, ${0.15 * (1 - dist / 120)})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        });
-      });
-
-      animationId = requestAnimationFrame(animate);
-    };
-
-    animate();
-
-    return () => cancelAnimationFrame(animationId);
-  }, [mousePos]);
-
-  const techStacks = [
-    { name: 'Frontend', items: ['React', 'Next.js', 'TypeScript', 'Tailwind', 'Flutter', 'React Native'], icon: Code },
-    { name: 'Backend', items: ['Node.js', 'Express', 'Python', 'PHP', 'Firebase'], icon: Database },
-    { name: 'AI/ML', items: ['TensorFlow', 'Hugging Face', 'OpenCV', 'NumPy', 'Pandas'], icon: Cpu },
-    { name: 'Cloud', items: ['Firebase Studio', 'Vercel', 'GCP', 'Azure', 'Cloudflare'], icon: Zap }
-  ];
-
-  const projects = [
-    {
-      title: 'Aicademy',
-      desc: 'AI-powered learning platform with course generation',
-      tech: 'Next.js • Gemini • Drizzle • Tailwind',
-      gradient: 'from-violet-600 to-indigo-600'
-    },
-    {
-      title: 'GrowTo',
-      desc: 'Animated agriculture company landing page',
-      tech: 'Next.js • Framer Motion • Tailwind',
-      gradient: 'from-emerald-600 to-teal-600'
-    },
-    {
-      title: 'Smart Home AI',
-      desc: 'Intelligent home automation system',
-      tech: 'TensorFlow • OpenCV • React Native',
-      gradient: 'from-pink-600 to-rose-600'
-    }
-  ];
-
-  return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
-      {/* Animated Background Canvas */}
-      <canvas ref={canvasRef} className="fixed top-0 left-0 w-full h-full pointer-events-none z-0" />
-
-      {/* Hero Section */}
-      <div className="relative z-10 min-h-screen flex items-center justify-center px-4">
-        <div 
-          className="text-center"
-          style={{
-            transform: `translateY(${scrollY * 0.5}px)`,
-            transition: 'transform 0.1s ease-out'
-          }}
-        >
-          {/* Glowing Avatar */}
-          <div className="relative inline-block mb-8">
-            <div className="absolute inset-0 bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 rounded-full blur-2xl opacity-60 animate-pulse" />
-            <div className="relative w-40 h-40 rounded-full bg-gradient-to-br from-violet-500 via-purple-500 to-pink-500 p-1">
-              <div className="w-full h-full rounded-full bg-black flex items-center justify-center text-6xl font-bold bg-gradient-to-br from-violet-400 to-pink-400 bg-clip-text text-transparent">
-                MA
-              </div>
-            </div>
-          </div>
-
-          {/* Name with cinematic effect */}
-          <h1 className="text-7xl md:text-9xl font-black mb-4 relative">
-            <span className="absolute inset-0 bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 bg-clip-text text-transparent blur-lg opacity-50">
-              MOHD AMAN
-            </span>
-            <span className="relative bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              MOHD AMAN
-            </span>
-          </h1>
-
-          <div className="space-y-2 mb-8">
-            <p className="text-2xl md:text-3xl text-gray-300 font-light tracking-wider">
-              Full-Stack Developer • AI Architect
-            </p>
-            <p className="text-xl text-violet-400 font-mono">
-              Building the Future with AI & Code
-            </p>
-          </div>
-
-          {/* Social Links */}
-          <div className="flex gap-4 justify-center mb-12">
-            {[
-              { Icon: Github, href: 'https://github.com/MohammadAmannn', color: 'hover:text-violet-400' },
-              { Icon: Linkedin, href: 'https://www.linkedin.com/in/mohd-aman-021261236/', color: 'hover:text-blue-400' },
-              { Icon: Instagram, href: 'https://www.instagram.com/oyie.aman', color: 'hover:text-pink-400' },
-              { Icon: Twitter, href: 'https://x.com/wtf__ammu', color: 'hover:text-sky-400' },
-              { Icon: Mail, href: 'mailto:itsaman00786@gmail.com', color: 'hover:text-red-400' }
-            ].map(({ Icon, href, color }, i) => (
-              <a
-                key={i}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`p-4 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 ${color} transition-all duration-300 hover:scale-110 hover:bg-white/10 hover:shadow-2xl hover:shadow-violet-500/50`}
-              >
-                <Icon size={28} />
-              </a>
-            ))}
-          </div>
-
-          {/* Scroll Indicator */}
-          <div className="animate-bounce">
-            <div className="w-6 h-10 border-2 border-violet-400 rounded-full p-1">
-              <div className="w-1.5 h-3 bg-violet-400 rounded-full mx-auto animate-pulse" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Tech Stack Section */}
-      <div className="relative z-10 py-32 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-6xl font-black text-center mb-20">
-            <span className="bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-transparent">
-              TECH ARSENAL
-            </span>
-          </h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {techStacks.map((stack, i) => (
-              <div
-                key={i}
-                className="group relative bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-violet-500/50 transition-all duration-500 hover:scale-105"
-                style={{
-                  animation: `float ${3 + i * 0.5}s ease-in-out infinite`,
-                  animationDelay: `${i * 0.2}s`
-                }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-violet-600/0 to-pink-600/0 group-hover:from-violet-600/10 group-hover:to-pink-600/10 rounded-3xl transition-all duration-500" />
-                
-                <div className="relative">
-                  <div className="mb-6 inline-block p-4 rounded-2xl bg-gradient-to-br from-violet-500/20 to-pink-500/20">
-                    <stack.icon size={32} className="text-violet-400" />
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold mb-4 text-violet-300">{stack.name}</h3>
-                  
-                  <div className="flex flex-wrap gap-2">
-                    {stack.items.map((item, j) => (
-                      <span
-                        key={j}
-                        className="px-3 py-1.5 text-sm rounded-full bg-white/5 border border-white/10 text-gray-300 hover:bg-violet-500/20 hover:border-violet-500/50 hover:text-white transition-all duration-300"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Projects Section */}
-      <div className="relative z-10 py-32 px-4">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-6xl font-black text-center mb-20">
-            <span className="bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-transparent">
-              FEATURED WORKS
-            </span>
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {projects.map((project, i) => (
-              <div
-                key={i}
-                className="group relative bg-black rounded-3xl overflow-hidden border border-white/10 hover:border-violet-500/50 transition-all duration-500 hover:scale-105"
-              >
-                <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
-                
-                <div className="relative p-8">
-                  <div className="mb-4">
-                    <Sparkles className="text-violet-400 mb-4" size={32} />
-                    <h3 className="text-3xl font-bold mb-2">{project.title}</h3>
-                  </div>
-                  
-                  <p className="text-gray-400 mb-4 text-lg">{project.desc}</p>
-                  
-                  <p className="text-sm text-violet-300 font-mono mb-6">{project.tech}</p>
-                  
-                  <button className="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-violet-600 to-pink-600 font-semibold hover:shadow-2xl hover:shadow-violet-500/50 transition-all duration-300 hover:scale-105">
-                    View Project
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Stats Section */}
-      <div className="relative z-10 py-32 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { label: 'Projects', value: '50+', icon: Code },
-              { label: 'Technologies', value: '30+', icon: Cpu },
-              { label: 'GitHub Stars', value: '100+', icon: Star }
-            ].map((stat, i) => (
-              <div
-                key={i}
-                className="relative bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-xl rounded-3xl p-12 border border-white/10 text-center group hover:border-violet-500/50 transition-all duration-500"
-              >
-                <stat.icon className="mx-auto mb-4 text-violet-400 group-hover:scale-110 transition-transform duration-300" size={48} />
-                <div className="text-6xl font-black mb-2 bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-transparent">
-                  {stat.value}
-                </div>
-                <div className="text-xl text-gray-400">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* CTA Section */}
-      <div className="relative z-10 py-32 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-5xl md:text-7xl font-black mb-8">
-            <span className="bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-transparent">
-              Let's Build Something Epic
-            </span>
-          </h2>
-          <p className="text-2xl text-gray-400 mb-12">
-            Open to collaborations on AI, Full-Stack, and innovative projects
-          </p>
-          <a
-            href="mailto:itsaman00786@gmail.com"
-            className="inline-block py-4 px-12 text-xl font-bold rounded-full bg-gradient-to-r from-violet-600 to-pink-600 hover:shadow-2xl hover:shadow-violet-500/50 transition-all duration-300 hover:scale-110"
-          >
-            Get In Touch
-          </a>
-        </div>
-      </div>
-
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-        }
-      `}</style>
-    </div>
-  );
+```typescript
+const aman = {
+  role: "Full-Stack Developer & AI Engineer",
+  location: "India 🇮🇳",
+  education: "Computer Science",
+  currentFocus: ["AI Integration", "Next.js 15", "TensorFlow", "React Native"],
+  askMeAbout: ["Web Dev", "AI/ML", "Mobile Apps", "Firebase", "Computer Vision"],
+  funFact: "I turn coffee into code and ideas into AI-powered solutions ☕→💻"
 };
+```
 
-export default CinematicGitHubProfile;
+<div align="center">
+
+### 🎯 *"Code is poetry written in logic"*
+
+</div>
+
+---
+
+## 🚀 TECH ARSENAL
+
+<div align="center">
+
+### 💻 **Frontend Development**
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
+
+### 📱 **Mobile Development**
+![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
+![Android Studio](https://img.shields.io/badge/Android_Studio-3DDC84?style=for-the-badge&logo=android-studio&logoColor=white)
+
+### ⚙️ **Backend Development**
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![C](https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=black)
+![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
+
+### 🤖 **AI/ML & Data Science**
+![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![Hugging Face](https://img.shields.io/badge/Hugging_Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
+![Google Gemini](https://img.shields.io/badge/Google_Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white)
+![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white)
+
+### 🗄️ **Database & Cloud**
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
+![Firebase Studio](https://img.shields.io/badge/Firebase_Studio-DD2C00?style=for-the-badge&logo=firebase&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![GraphQL](https://img.shields.io/badge/GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white)
+
+### ☁️ **Cloud & Hosting**
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![Google Cloud](https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white)
+![Azure](https://img.shields.io/badge/Microsoft_Azure-0078D4?style=for-the-badge&logo=microsoft-azure&logoColor=white)
+![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=cloudflare&logoColor=white)
+
+### 🛠️ **Tools & Platforms**
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
+![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
+![Adobe Illustrator](https://img.shields.io/badge/Illustrator-FF9A00?style=for-the-badge&logo=adobe-illustrator&logoColor=white)
+![Adobe Photoshop](https://img.shields.io/badge/Photoshop-31A8FF?style=for-the-badge&logo=adobe-photoshop&logoColor=white)
+![Adobe Premiere Pro](https://img.shields.io/badge/Premiere_Pro-9999FF?style=for-the-badge&logo=adobe-premiere-pro&logoColor=white)
+![Canva](https://img.shields.io/badge/Canva-00C4CC?style=for-the-badge&logo=canva&logoColor=white)
+![WordPress](https://img.shields.io/badge/WordPress-21759B?style=for-the-badge&logo=wordpress&logoColor=white)
+
+</div>
+
+---
+
+## 🎨 FEATURED PROJECTS
+
+<div align="center">
+
+### 🌟 **Aicademy – AI Learning Platform**
+[![Aicademy](https://img.shields.io/badge/VIEW_PROJECT-6366F1?style=for-the-badge&logo=vercel&logoColor=white)](https://github.com/MohammadAmannn)
+
+```
+AI-generated courses, video recommendations, intelligent notes & doubt support
+```
+
+**Tech Stack:**
+`Next.js` • `Drizzle ORM` • `Google Gemini` • `Tailwind CSS` • `Shadcn UI` • `TypeScript`
+
+---
+
+### 🌱 **GrowTo – Agriculture Landing Website**
+[![GrowTo](https://img.shields.io/badge/VIEW_PROJECT-10B981?style=for-the-badge&logo=vercel&logoColor=white)](https://github.com/MohammadAmannn)
+
+```
+Beautiful animated website built for a real agriculture company
+```
+
+**Tech Stack:**
+`Next.js 15` • `Tailwind CSS` • `Framer Motion` • `TypeScript` • `Responsive Design`
+
+---
+
+### 🏠 **Smart Home AI System**
+[![Smart Home](https://img.shields.io/badge/VIEW_PROJECT-EC4899?style=for-the-badge&logo=tensorflow&logoColor=white)](https://github.com/MohammadAmannn)
+
+```
+Intelligent home automation with computer vision & voice control
+```
+
+**Tech Stack:**
+`TensorFlow` • `OpenCV` • `Python` • `React Native` • `Firebase` • `IoT Integration`
+
+</div>
+
+---
+
+## 📊 GITHUB ANALYTICS
+
+<div align="center">
+  
+  ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=MohammadAmannn&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117&title_color=6366F1&icon_color=EC4899&text_color=FFFFFF)
+  
+  ![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=MohammadAmannn&theme=radical&hide_border=true&background=0D1117&ring=6366F1&fire=EC4899&currStreakLabel=6366F1)
+  
+  ![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=MohammadAmannn&layout=compact&theme=radical&hide_border=true&bg_color=0D1117&title_color=6366F1&text_color=FFFFFF)
+
+  ![Profile Views](https://komarev.com/ghpvc/?username=MohammadAmannn&color=6366f1&style=for-the-badge)
+  
+</div>
+
+---
+
+## 🏆 GITHUB TROPHIES
+
+<div align="center">
+  
+  ![trophy](https://github-profile-trophy.vercel.app/?username=MohammadAmannn&theme=radical&no-frame=true&no-bg=true&column=7&margin-w=15&margin-h=15)
+
+</div>
+
+---
+
+## 📈 CONTRIBUTION GRAPH
+
+<div align="center">
+
+[![Aman's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=MohammadAmannn&theme=react-dark&hide_border=true&area=true&custom_title=Contribution%20Graph&bg_color=0D1117&color=6366F1&line=EC4899&point=FFFFFF)](https://github.com/MohammadAmannn)
+
+</div>
+
+---
+
+## 🌐 CONNECT WITH ME
+
+<div align="center">
+
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MohammadAmannn)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohd-aman-021261236/)
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/oyie.aman?igsh=MXNqOXB5MXNiODdjZA==)
+[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://x.com/wtf__ammu?t=8JbFEAR9JrjICZfkLT7ZFw&s=09)
+[![Gmail](https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:itsaman00786@gmail.com)
+
+### 📧 Email: **itsaman00786@gmail.com**
+
+</div>
+
+---
+
+## 💡 CURRENT FOCUS
+
+<div align="center">
+
+```mermaid
+mindmap
+  root((MOHD AMAN))
+    AI/ML
+      TensorFlow
+      Computer Vision
+      Hugging Face
+      NLP
+    Full Stack
+      Next.js 15
+      React Native
+      Firebase Studio
+      TypeScript
+    Mobile Dev
+      Flutter
+      React Native
+      Cross Platform
+    Cloud
+      GCP
+      Azure
+      Firebase
+```
+
+</div>
+
+---
+
+## 🎯 2025 GOALS
+
+- 🚀 Build 10+ AI-powered applications
+- 📱 Master React Native & Flutter for cross-platform development
+- 🤖 Contribute to open-source AI/ML projects
+- 📚 Launch an AI course platform
+- 🌍 Collaborate with developers worldwide
+- 🏆 Reach 1000+ GitHub stars
+
+---
+
+## 📝 LATEST BLOG POSTS
+
+<!-- BLOG-POST-LIST:START -->
+- 🤖 Building AI-Powered Web Apps with Next.js and Gemini
+- 📱 React Native vs Flutter: A Complete Comparison
+- 🎨 Mastering Animations with Framer Motion
+- 🔥 Firebase Studio: The Complete Guide
+- 🧠 Computer Vision with OpenCV and TensorFlow
+<!-- BLOG-POST-LIST:END -->
+
+---
+
+## 💰 SUPPORT MY WORK
+
+<div align="center">
+
+If you like my work, consider giving a ⭐ to my repositories!
+
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com)
+[![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me)
+
+</div>
+
+---
+
+## 📊 CODING STATS
+
+<div align="center">
+
+<!--START_SECTION:waka-->
+```text
+TypeScript   12 hrs 30 mins  ████████████░░░░░░░░░   48.2%
+JavaScript   6 hrs 15 mins   ██████░░░░░░░░░░░░░░░   24.1%
+Python       4 hrs 20 mins   ████░░░░░░░░░░░░░░░░░   16.7%
+CSS          2 hrs 10 mins   ██░░░░░░░░░░░░░░░░░░░    8.4%
+Other        0 hrs 40 mins   █░░░░░░░░░░░░░░░░░░░░    2.6%
+```
+<!--END_SECTION:waka-->
+
+</div>
+
+---
+
+## 🐍 CONTRIBUTION SNAKE
+
+<div align="center">
+  
+  ![Snake animation](https://raw.githubusercontent.com/MohammadAmannn/MohammadAmannn/output/github-contribution-grid-snake-dark.svg)
+
+</div>
+
+---
+
+<div align="center">
+
+### 💭 *"First, solve the problem. Then, write the code."* – John Johnson
+
+### 🚀 Let's Build Something Amazing Together!
+
+[![Readme Quotes](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)](https://github.com/piyushsuthar/github-readme-quotes)
+
+---
+
+![Footer](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=150&section=footer&animation=twinkling)
+
+**⭐ From [MohammadAmannn](https://github.com/MohammadAmannn) with 💜**
+
+</div>
