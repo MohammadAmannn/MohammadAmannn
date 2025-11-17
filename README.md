@@ -15,3 +15,12 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 <img src="https://github.com/MohammadAmannn/MohammadAmannn/blob/main/Screenshot%202025-11-17%20121037.png" alt="Aman Banner" width="100%" />
+### 🛠️ Skills
+
+![React](https://img.shields.io/badge/React-20232A.svg?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Next.js](https://img.shields.io/badge/Next.js-000000.svg?style=for-the-badge&logo=next.js&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-ffca28.svg?style=for-the-badge&logo=firebase&logoColor=black)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Shadcn](https://img.shields.io/badge/Shadcn/UI-black?style=for-the-badge)
+![Gemini AI](https://img.shields.io/badge/Google%20Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white)
+
